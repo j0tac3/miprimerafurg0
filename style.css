@@ -1,0 +1,260 @@
+*{
+    box-sizing: border-box;
+}
+.body{
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+img{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.menu{
+    list-style: none;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+/****** Header ***********/
+.header{
+    width: 100%;
+    height: 4rem;
+    position: sticky;
+    top: 0;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+    box-shadow: 0 5px 25px -15px #7777;
+    align-self: flex-start;
+    background-color: #ffff;
+    z-index: 999;
+    box-sizing: border-box;
+
+    color: #777;
+    font-weight: bold;
+}
+.page_info{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 2.5rem;
+    border-radius: 50px;
+}
+
+.header__menu{
+    display: none;
+}
+.menu__item{
+    margin: 0 .5rem;
+    border-bottom: 2px solid transparent;
+}
+.menu__item:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #7777;
+}
+.header__item__link{
+    color: #777;
+    text-decoration: none;
+}
+.menu__icon{
+    cursor: pointer;
+    width: 2rem;
+}
+/*******************************/
+
+/********** Footer ***********/
+.footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    justify-content: space-evenly;
+    box-shadow: 0 -5px 25px -15px #7777;
+
+    align-self: flex-end;
+    text-align: justify;
+    padding: 1rem 0;
+    background-color: #ffff;
+}
+.social__list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.social__icon{
+    width: 3rem;
+}
+.footer__title{
+    text-align: center;
+}
+/******************************/
+
+/******** Content ************/
+.content{
+    align-self: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ffff;
+}
+.card{
+    max-width: 25rem;
+    margin: 1rem 0;
+    text-align: justify;
+    color: #777;
+    box-shadow: 0 0 20px -10px #7777;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.header__title{
+    padding: 0;
+    margin: 0;
+}
+.header__img{
+    max-height: 15rem;
+    object-fit: cover;
+    object-position: center;
+}
+.card__body{
+    padding: .5rem;
+}
+
+/********* Menu lateral *************/
+.menu__lateral-area{
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    width: 100vw;
+    height: calc( 100vh - 4rem);
+    background-color: rgba(0, 0, 0, .6);
+    color: #fff;
+
+    transition: transform .2s ease-out;
+    transform: translateX(-100%);
+
+}
+.menu__lateral{
+    width: 50%;
+    box-sizing: border-box;
+    max-width: 15rem;
+    padding-left: 1rem;
+    height: calc( 100vh - 4rem);
+    background-color: rgba(0, 0, 0, .8);
+
+    transition: transform .7s;
+    transform: translateX(-100%);
+}
+.lateral__item{
+    padding-top: .7rem;
+    width: fit-content;
+}
+.lateral__item:hover{
+    border-bottom: 2px solid #ffff;
+}
+
+.menu__lateral-area__visible{
+    transform: translateX(0);
+}
+.menu__lateral-visible{
+    transform: translateX(0);
+}
+.item__link{
+    color: #fff;
+    text-decoration: none;
+}
+
+.main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.main__menu{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+}
+.main__menu-option{
+    width: 6rem;
+    box-shadow: 0 0 15px -5px #7777;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: .5rem 1rem;
+    padding: .5rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .3);
+}
+.main__menu__item__link{
+    color: #ffff;
+    text-decoration: none;
+}
+.item__icon{
+    filter: invert(1);
+}
+
+/************ Slider **************/
+.image_slider{
+    display: flex;
+    white-space: nowrap;
+    width: 100%;
+
+    animation-name: slider;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 20s;
+    animation-timing-function: ease;
+    animation-delay: 5s;
+
+    transition: transform 1s;
+}
+@keyframes slider{
+    from {
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(-200%);
+        animation-delay: 5s;
+    }
+}
+.main__img{
+    width: 100%;
+}
+
+
+
+/********** Media **************/
+@media screen and (min-width: 800px) {
+  
+}
+@media screen and (min-width: 768px) {
+    .menu__icon{
+        display: none;
+    }
+    .header__menu{
+        display: flex;
+    }
+    .menu__lateral-area{
+        display: none;
+    }
+    .social{
+        border-left: 1px solid #7777;
+        padding-left: 2rem;
+    }
+}
