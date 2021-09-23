@@ -48,6 +48,7 @@ img{
     color: #777;
     margin-bottom: .5rem;
     width: 100%;
+    padding: 0 1rem;
 }
 .page_info{
     display: flex;
@@ -185,6 +186,13 @@ img{
 
 .card_index{
     width: 20rem;
+    transition: transform .3s, box-shadow .3s;
+}
+.card_index:first-child{
+    margin-left: 0;
+}
+.card_index:last-child{
+    margin-right: 0;
 }
 /********* Menu lateral *************/
 .menu__lateral-area{
@@ -241,6 +249,7 @@ img{
 .main__menu{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1rem;
 }
 .main__menu-option{
     width: 6rem;
@@ -251,9 +260,12 @@ img{
     box-sizing: border-box;
     margin: .5rem;
     padding: .5rem;
-    border-radius: 5px;
+    border-radius: 3px;
     text-align: center;
     background-color: rgba(0, 0, 0, .6);
+}
+.main__menu-option:hover{
+    transform: translateY(5px);
 }
 .main__menu__item__link{
     color: #ffff;
@@ -325,11 +337,40 @@ img{
     align-items: flex-start;
 }
 .section__articles_index{
-    width: 100%;
+    width: 98%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: flex-start;
     overflow-x: auto;
+}
+.card_index:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    box-shadow: 0 0px 25px -5px #7777;
+}
+
+/********** Buscador *************/
+.container__buscador{
+    position: relative;
+    width: 90%;
+    max-width: 30rem;
+}
+.icon{
+    width: 1rem;
+    position: absolute;
+    margin: .5rem;
+    top: 0;
+    left: 0;
+    filter: invert(.7);
+}
+.buscador{
+    border: solid 1px #7777;
+    border-radius: 20px;
+    outline: none;
+    height: 2rem;
+    width: 100%;
+    padding-left: 2rem;
+    box-shadow: 0 0 15px -10px #777;
 }
 
 /********** Media **************/
