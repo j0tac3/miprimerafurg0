@@ -3,6 +3,7 @@
 }
 .body{
     box-sizing: border-box;
+    min-width: 320px;
     width: 100%;
     min-height: 100vh;
     margin: 0;
@@ -43,6 +44,9 @@ img{
 }
 .title{
     color: #777;
+    margin-bottom: .5rem;
+    width: 100%;
+    text-align: center;
 }
 .page_info{
     display: flex;
@@ -163,6 +167,7 @@ img{
 .header__title{
     padding: 0;
     margin: 0;
+    text-align: left;
 }
 .header__img{
     max-height: 15rem;
@@ -323,14 +328,15 @@ img{
 
 /********** Media **************/
 @media screen and (max-width: 767px) {
-  .card{
-      max-width: 100%;
-      border-radius: 0;
-      margin: 1rem 0;
-  }
-  .card_index{
-    margin: 0 .5rem;
-}
+    .card{
+        max-width: 100%;
+        border-radius: 0;
+        margin: 1rem 0;
+    }
+    .card_index{
+        width: 16rem;
+        margin: 0 .5rem;
+    }
 }
 @media screen and (min-width: 768px) {
     .menu__icon{
