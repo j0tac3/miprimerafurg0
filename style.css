@@ -145,18 +145,19 @@ img{
 .content{
     align-self: flex-start;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: #ffff;
     min-height: 40vh;
+    overflow: hidden;
 }
 .card{
-    max-width: 25rem;
-    margin: 1rem 0;
+    max-width: 20rem;
+    margin: 1rem;
     text-align: justify;
     color: #777;
-    box-shadow: 0 0 20px -10px #7777;
-    border-radius: 5px;
+    box-shadow: 0 5px 10px -10px #7777;
+    border-radius: 3px;
     overflow: hidden;
 }
 .header__title{
@@ -172,6 +173,10 @@ img{
     padding: .5rem;
 }
 
+
+.card_index{
+    width: 20rem;
+}
 /********* Menu lateral *************/
 .menu__lateral-area{
     position: fixed;
@@ -286,7 +291,7 @@ img{
 /*********** info Aventura ******************/
 .info__container{
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: auto auto 1fr;
     align-items: center;
     width: 100%;
     padding: 0 .5rem;
@@ -302,10 +307,30 @@ img{
     justify-self: flex-end;
 }
 
+/**** Articles ****/
+.section__articles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.section__articles_index{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: flex-start;
+    overflow-x: auto;
+}
 
 /********** Media **************/
-@media screen and (min-width: 800px) {
-  
+@media screen and (max-width: 767px) {
+  .card{
+      max-width: 100%;
+      border-radius: 0;
+      margin: 1rem 0;
+  }
+  .card_index{
+    margin: 0 .5rem;
+}
 }
 @media screen and (min-width: 768px) {
     .menu__icon{
