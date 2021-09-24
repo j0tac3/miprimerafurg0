@@ -31,7 +31,7 @@ function onScroll(event){
     }
 }
 
-let moveToLeftOrRightValue = 0;
+let moveToLeftOrRightValue = -1;
 let bodySize = document.body.clientWidth;
 const articles = document.getElementById("articles");
 const btnToLeft = document.getElementById("btnToLeft");
@@ -45,7 +45,6 @@ function addToLeftValue(){
     }
 }
 function addToRightValue(){
-    let position = moveToLeftOrRightValue + window.screen.availWidth;
     if (moveToLeftOrRightValue + bodySize < articles.scrollWidth){
         moveToLeftOrRightValue = articles.scrollLeft + 200;
         moveToSide();
@@ -59,31 +58,55 @@ function moveToSide(){
     enableDisableButtons();
 }
 function enableDisableButtons(){
-    let position = moveToLeftOrRightValue + window.screen.availWidth;
     if (moveToLeftOrRightValue <= 0 && !btnToLeft["disabled"])
-        btnToLeft["disabled"] = true;
+        disableEnableButtonLeft(false);
     else if (moveToLeftOrRightValue > 0 && btnToLeft["disabled"])
-        btnToLeft["disabled"] = false;
+        disableEnableButtonLeft(true);
     if((articles.scrollWidth - moveToLeftOrRightValue > bodySize) && btnToRight["disabled"])
-        btnToRight["disabled"] = false;
-    else if((articles.scrollWidth - moveToLeftOrRightValue < bodySize) && !btnToRight["disabled"])
-        btnToRight["disabled"] = true;
+        disableEnableButtonRight(true);
+    else if((articles.scrollWidth - moveToLeftOrRightValue <= bodySize) && !btnToRight["disabled"])
+        disableEnableButtonRight(false);
+}
 
-    if (articles.scrollWidth < bodySize){
-        btnToLeft.classList.add("btnMove__hidden");
-        btnToRight.classList.add("btnMove__hidden");
-        console.log("Ocultando");
+function disableEnableButtonLeft(enable){
+    if (enable){
+        btnToLeft["disabled"] = false
+        btnToLeft.classList.remove("btnToLeft__hidden");
     } else {
-        btnToLeft.classList.remove("btnMove__hidden");
-        btnToRight.classList.remove("btnMove__hidden");
-        console.log("Mostrando");
+        btnToLeft["disabled"] = true
+        btnToLeft.classList.add("btnToLeft__hidden");
+    }
+}
+function disableEnableButtonRight(enable){
+    if (enable){
+        btnToRight["disabled"] = false
+        btnToRight.classList.remove("btnToRight__hidden");
+    } else {
+        btnToRight["disabled"] = true
+        btnToRight.classList.add("btnToRight__hidden");
+    }
+}
+
+function resizeChech(){
+    let bodySize = document.body.clientWidth;
+    if (articles.scrollWidth < bodySize){
+        moveToLeftOrRightValue = 0
+        btnToRight["disabled"] = false;
+        btnToLeft["disabled"] = false;
+        btnToLeft.classList.add("btnToLeft__hidden");
+        btnToRight.classList.add("btnToRight__hidden");
+    } else {
+
+        btnToRight["disabled"] = false;
+        btnToLeft["disabled"] = true;
+        btnToLeft.classList.add("btnToLeft__hidden");
+        btnToRight.classList.remove("btnToRight__hidden");
     }
 }
 
 window.onload = function(){
-    enableDisableButtons();
+    resizeChech();
 };
 window.onresize = function(){
-    bodySize = document.body.clientWidth;
-    enableDisableButtons();
+    resizeChech();
 };

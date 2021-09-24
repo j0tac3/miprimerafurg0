@@ -421,20 +421,24 @@ img{
     background-color: rgba(0, 0, 0, .5);
     color: rgba(255, 255, 255, .6);
     border: none;
+    transition: transform .4s;
 }
 .btnMove:disabled{
     background-color: rgba(0, 0, 0, .2);
 }
-.btnMove__hidden{
-    display: none;
+.btnToLeft__hidden{
+    transform: translateX(-150%);
+}
+.btnToRight__hidden{
+    transform: translateX(150%);
 }
 .btnToLeft{
     left: 0;
-    margin-left: .3rem;
+    margin-left: .5rem;
 }
 .btnToRight{
     right: 0;
-    margin-right: .3rem;
+    margin-right: .5rem;
 }
 /********** Media **************/
 @media screen and (max-width: 767px) {
