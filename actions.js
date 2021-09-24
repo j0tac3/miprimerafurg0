@@ -40,14 +40,14 @@ btnToLeft.addEventListener("click", addToLeftValue);
 btnToRight.addEventListener("click", addToRightValue);
 function addToLeftValue(){
     if (moveToLeftOrRightValue > 0){
-        moveToLeftOrRightValue = articles.scrollLeft - 100;
+        moveToLeftOrRightValue = articles.scrollLeft - 200;
         moveToSide();
     }
 }
 function addToRightValue(){
     let position = moveToLeftOrRightValue + window.screen.availWidth;
     if (moveToLeftOrRightValue + bodySize < articles.scrollWidth){
-        moveToLeftOrRightValue = articles.scrollLeft + 100;
+        moveToLeftOrRightValue = articles.scrollLeft + 200;
         moveToSide();
     }
 }

@@ -349,8 +349,11 @@ img{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: flex-start;
-    overflow-x: hidden;
+    overflow-x: auto;
     position: relative;
+}
+.section__articles_index::-webkit-scrollbar{
+    display: none;
 }
 .card_index:hover, .card:hover{
     cursor: pointer;
