@@ -347,7 +347,7 @@ img{
     align-items: flex-start;
 }
 .section__articles_index{
-    width: 98%;
+    width: 95%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: flex-start;

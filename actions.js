@@ -69,8 +69,6 @@ function enableDisableButtons(){
     else if((articles.scrollWidth - moveToLeftOrRightValue < bodySize) && !btnToRight["disabled"])
         btnToRight["disabled"] = true;
 
-    console.log(document.body.clientWidth);
-    console.log(articles.scrollWidth);
     if (articles.scrollWidth < bodySize){
         btnToLeft.classList.add("btnMove__hidden");
         btnToRight.classList.add("btnMove__hidden");
