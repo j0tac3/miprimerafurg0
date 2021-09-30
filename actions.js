@@ -96,7 +96,6 @@ function resizeChech(){
         btnToLeft.classList.add("btnToLeft__hidden");
         btnToRight.classList.add("btnToRight__hidden");
     } else {
-
         btnToRight["disabled"] = false;
         btnToLeft["disabled"] = true;
         btnToLeft.classList.add("btnToLeft__hidden");
