@@ -35,9 +35,11 @@ let moveToLeftOrRightValue = -1;
 let bodySize = document.body.clientWidth;
 const articles = document.getElementById("articles");
 const btnToLeft = document.getElementById("btnToLeft");
+if (btnToLeft)
+    btnToLeft.addEventListener("click", addToLeftValue);
 const btnToRight = document.getElementById("btnToRight");
-btnToLeft.addEventListener("click", addToLeftValue);
-btnToRight.addEventListener("click", addToRightValue);
+if (btnToRight)
+    btnToRight.addEventListener("click", addToRightValue);
 function addToLeftValue(){
     if (moveToLeftOrRightValue > 0){
         moveToLeftOrRightValue = articles.scrollLeft - 200;
@@ -104,8 +106,10 @@ function resizeChech(){
 }
 
 window.onload = function(){
-    resizeChech();
+    if (articles)
+        resizeChech();
 };
 window.onresize = function(){
-    resizeChech();
+    if (articles)
+        resizeChech();
 };
